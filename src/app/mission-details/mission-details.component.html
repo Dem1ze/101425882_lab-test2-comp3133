@@ -1,0 +1,41 @@
+<div class="mission-details-container" *ngIf="mission">
+    <h2>Mission Details: {{mission?.mission_name}}</h2>
+    
+    <div class="mission-header">
+      <div class="mission-patch" *ngIf="getMissionPatch()">
+        <img [src]="getMissionPatch()" alt="Mission Patch">
+      </div>
+      
+      <div class="mission-info">
+        <p><strong>Flight Number:</strong> {{mission?.flight_number}}</p>
+        <p><strong>Launch Year:</strong> {{mission?.launch_year}}</p>
+        <p><strong>Rocket:</strong> {{getRocketName()}} ({{getRocketType()}})</p>
+      </div>
+    </div>
+    
+    <hr>
+    
+    <div class="mission-body">
+      <h3>Details</h3>
+      <p>{{mission?.details || 'No details available for this mission.'}}</p>
+    </div>
+    
+    <hr>
+    
+    <div class="mission-links">
+      <h3>Links</h3>
+      <div class="links-container">
+        <a class="link-button" [href]="getArticleLink()" target="_blank" *ngIf="getArticleLink()">
+          Article
+        </a>
+        <a class="link-button" [href]="getWikipediaLink()" target="_blank" *ngIf="getWikipediaLink()">
+          Wikipedia
+        </a>
+        <a class="link-button" [href]="getVideoLink()" target="_blank" *ngIf="getVideoLink()">
+          Video
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  
